@@ -37,10 +37,9 @@ export default class MyTrello {
   initDesck(columnsArr = ["TODO", "IN PROGRESS", "DONE"]) {
     const desc = this.parentElem.querySelector(".my-trello__content");
     const loadData = this.loadData();
-    console.log(loadData);
 
     if (loadData) {
-      this.descState.columns.forEach((column) => {
+      loadData.columns.forEach((column) => {
         const columnElem = this._createColumn(column.title, column.id);
 
         column.tasks.forEach((task) => {
@@ -55,6 +54,8 @@ export default class MyTrello {
 
         desc.appendChild(columnElem);
       });
+
+      this.descState = loadData;
 
       return;
     }

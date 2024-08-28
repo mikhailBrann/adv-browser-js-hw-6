@@ -23,11 +23,11 @@ export default class MyTrello {
   }
 
   safeData(data) {
-    window.localStorage.setItem("descState", JSON.stringify(data));
+    localStorage.setItem("descState", JSON.stringify(data));
   }
 
   loadData() {
-    const data = window.localStorage.getItem("descState");
+    const data = localStorage.getItem("descState");
 
     if (data) {
       this.descState = JSON.parse(data);

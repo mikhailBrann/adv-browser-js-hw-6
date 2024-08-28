@@ -1,0 +1,111 @@
+:root {
+    --container-padding: 14px 10px;
+    --container-radius: 7px;
+}
+.my-trello {
+    background: #117abb;
+    color: #314653;
+    box-sizing: border-box;
+    padding: var(--container-padding);
+    border-radius: var(--container-radius);
+}
+
+.my-trello__title {
+    text-transform: uppercase;
+    box-sizing: border-box;
+    padding: 20px 0px;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.my-trello__content {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.my-trello__column {
+    background: #dee2e5;
+    padding: var(--container-padding);
+    border-radius: var(--container-radius);
+}
+
+.my-trello__column-content {
+    margin: 20px 0;
+    display: grid;
+    gap: 10px;
+}
+
+.my-trello__column-add-task:hover {
+    cursor: pointer;
+    color: #117abb;
+    position: relative;
+}
+
+.my-trello__column-add-task[data-state="false"] .my-trello__column-add-form-task,
+.my-trello__column-add-task[data-state="true"] .my-trello__column-add-task-btn {
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.my-trello__column-add-form-task textarea {
+    resize: none;
+    border-radius: var(--container-radius);
+    border: none;
+    min-height: 70px;
+    box-sizing: border-box;
+    padding: var(--container-padding);
+    width: 100%;
+}
+
+.my-trello__column-add-form-task {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.my-trello__column-add-form-task button[type=submit] {
+    background: #5da74f;
+    border: none;
+    color: #fff;
+    border-radius: var(--container-radius);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.my-trello__task {
+    box-sizing: border-box;
+    background: #fff;
+    min-height: 70px;
+    padding: var(--container-padding);
+    border-radius: var(--container-radius);
+    position: relative;
+}
+
+.my-trello__task-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    background: #dee2e5;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.my-trello__task-container.dragged {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
